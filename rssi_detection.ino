@@ -65,7 +65,7 @@ void loop() {
       avg = avg / circle;
 
       // main logic - rssi jump = movement
-      if (abs(rssi[idx] - rssi[(idx + circle - 1) % circle]) > 8) {
+      if (abs(avg - current_rssi) > 8) {
         Serial.println("Human detected, Turning ON  Bukb for 5 seconds");
         bulb_state = true;
         digitalWrite(bulb_pin, LOW);
